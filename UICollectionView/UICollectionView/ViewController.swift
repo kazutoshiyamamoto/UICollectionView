@@ -10,9 +10,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let data = [["テスト", "テスト2"], ["テスト3"]]
-    let sectionName = [["見出し1"], ["見出し2"]]
-    let photo = [["test1", "test2"], ["test3"]]
+    let sectionName = [["Section1"], ["Section2"], ["Section3"]]
+    let data = [["item1", "item2", "item3"], ["item4", "item5", "item6"], ["item7", "item8", "item9"]]
+    let photo = [["photo1", "photo2", "photo3"], ["photo4", "photo5", "photo6"], ["photo7", "photo8", "photo9"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,7 +48,7 @@ extension ViewController: UICollectionViewDataSource {
     
     // Headerの数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 3
     }
     
     // Cellの設定
