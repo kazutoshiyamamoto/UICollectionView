@@ -19,7 +19,6 @@ class ViewController: UIViewController {
         // UICollectionViewを生成
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height), collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = UIColor.white
-//        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
         collectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
         
@@ -54,7 +53,6 @@ extension ViewController: UICollectionViewDataSource {
     
     // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",for: indexPath as IndexPath) as! CollectionViewCell
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
         let cellImage = UIImage(named: photo[indexPath.section][indexPath.item])!
         let cellText = data[indexPath.section][indexPath.item]
@@ -85,7 +83,7 @@ extension ViewController:  UICollectionViewDelegateFlowLayout {
     
     // ヘッダーのサイズ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.view.frame.size.width, height:50)
+        return CGSize(width: self.view.frame.size.width, height: 50)
     }
 }
 
