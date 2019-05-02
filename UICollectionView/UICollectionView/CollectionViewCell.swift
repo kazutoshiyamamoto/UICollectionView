@@ -8,7 +8,7 @@
 
 import UIKit
 
-// CollectionViewのCell設定
+// CollectionViewのセル設定
 class CollectionViewCell: UICollectionViewCell {
     private let cellNameLabel: UILabel = {
         let label = UILabel()

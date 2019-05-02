@@ -8,7 +8,7 @@
 
 import UIKit
 
-// CollectionViewのHeader設定
+// CollectionViewのヘッダー設定
 class CollectionViewHeader: UICollectionReusableView {
     override init(frame: CGRect) {
         super.init(frame: frame)

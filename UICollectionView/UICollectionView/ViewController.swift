@@ -34,24 +34,24 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UICollectionViewDelegate {
-    // Cell選択時の処理
+    // セル選択時の処理
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(data[indexPath.section][indexPath.row])
     }
 }
 
 extension ViewController: UICollectionViewDataSource {
-    // Cellの数を返す
+    // セルの数を返す
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.data[section].count
     }
     
-    // Headerの数
+    // ヘッダーの数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 3
     }
     
-    // Cellの設定
+    // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",for: indexPath as IndexPath) as! CollectionViewCell
         let cellImage = UIImage(named: photo[indexPath.section][indexPath.item])!
@@ -60,7 +60,7 @@ extension ViewController: UICollectionViewDataSource {
         return cell
     }
     
-    // Headerの設定
+    // ヘッダーの設定
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let collectionViewHeader = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header", for: indexPath) as! CollectionViewHeader
         let headerText = sectionName[indexPath.section][indexPath.item]
@@ -80,7 +80,7 @@ extension ViewController:  UICollectionViewDelegateFlowLayout {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
     }
     
-    // Headerのサイズ
+    // ヘッダーのサイズ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.size.width, height:50)
     }
