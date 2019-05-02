@@ -19,7 +19,8 @@ class ViewController: UIViewController {
         // UICollectionViewを生成
         let collectionView = UICollectionView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height), collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.backgroundColor = UIColor.white
-        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+//        collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        collectionView.register(UINib(nibName: "CustomCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "CustomCollectionViewCell")
         collectionView.register(CollectionViewHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
         
         collectionView.delegate = self
@@ -53,10 +54,12 @@ extension ViewController: UICollectionViewDataSource {
     
     // セルの設定
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",for: indexPath as IndexPath) as! CollectionViewCell
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell",for: indexPath as IndexPath) as! CollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomCollectionViewCell", for: indexPath) as! CustomCollectionViewCell
         let cellImage = UIImage(named: photo[indexPath.section][indexPath.item])!
         let cellText = data[indexPath.section][indexPath.item]
         cell.setUpContents(image: cellImage,textName: cellText)
+
         return cell
     }
     
@@ -72,9 +75,9 @@ extension ViewController: UICollectionViewDataSource {
 extension ViewController:  UICollectionViewDelegateFlowLayout {
     // セルの大きさ
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 100, height: 100)
+        return CGSize(width: 80, height: 80)
     }
-    
+
     // セルの余白
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
