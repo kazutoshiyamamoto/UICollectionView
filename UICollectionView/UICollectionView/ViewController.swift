@@ -49,7 +49,7 @@ extension ViewController: UICollectionViewDataSource {
     
     // ヘッダーの数
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        return self.sectionName.count
     }
     
     // セルの設定
